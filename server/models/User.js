@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema(
     role: { type: String, enum: ['resident', 'helpdesk', 'committee'], required: true },
     flat: { type: mongoose.Schema.Types.ObjectId, ref: 'Flat', default: null },
     phone: { type: String, trim: true },
+    isDutyManager: { type: Boolean, default: false },
     isActive: { type: Boolean, default: true },
   },
   { timestamps: true }
