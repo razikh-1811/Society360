@@ -17,7 +17,9 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.get('/api/health', (req, res) => res.json({ status: 'ok', service: 'society360-api' }));
 
-// Feature routers are mounted here as modules are added.
+app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/flats', require('./routes/flatRoutes'));
+// Further feature routers are mounted here as modules are added.
 
 app.use(notFound);
 app.use(errorHandler);
