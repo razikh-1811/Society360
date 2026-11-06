@@ -21,6 +21,7 @@ app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/flats', require('./routes/flatRoutes'));
 app.use('/api/payments', require('./routes/paymentRoutes'));
 app.use('/api/dashboard', require('./routes/dashboardRoutes'));
+app.use('/api/reconciliation', require('./routes/reconciliationRoutes'));
 // Further feature routers are mounted here as modules are added.
 
 app.use(notFound);
