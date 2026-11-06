@@ -1,0 +1,11 @@
+{
+  "name": "society360",
+  "private": true,
+  "description": "Society360 - Smart Township Management Platform (MERN)",
+  "scripts": {
+    "server": "npm --prefix server run dev",
+    "client": "npm --prefix client run dev",
+    "seed": "npm --prefix server run seed",
+    "test": "npm --prefix server test"
+  }
+}
