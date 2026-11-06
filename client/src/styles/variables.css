@@ -1,0 +1,58 @@
+/* Design tokens. Every colour, size and radius in the app comes from here. */
+:root {
+  /* Brand palette */
+  --navy: #172b4d;
+  --navy-700: #22385f;
+  --navy-50: #eef1f6;
+  --teal: #0f9d8a;
+  --teal-600: #0c8777;
+  --teal-50: #e7f6f4;
+
+  /* Surfaces & text */
+  --bg: #f7f9fc;
+  --card: #ffffff;
+  --text: #202938;
+  --text-muted: #778195;
+  --border: #e3e8f0;
+
+  /* Status */
+  --success: #16a36a;
+  --success-50: #e6f6ef;
+  --warning: #e8a23b;
+  --warning-50: #fcf3e3;
+  --critical: #dc4c4c;
+  --critical-50: #fbeaea;
+  --info: #3b6fd4;
+  --info-50: #e9effb;
+
+  /* Typography */
+  --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.8125rem;
+  --fs-md: 0.9375rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: 1.875rem;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  /* Shape & depth */
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 2px rgba(23, 43, 77, 0.06);
+  --shadow: 0 2px 10px rgba(23, 43, 77, 0.07);
+  --shadow-lg: 0 12px 40px rgba(23, 43, 77, 0.18);
+
+  /* Layout */
+  --sidebar-w: 248px;
+  --topbar-h: 64px;
+  --touch: 44px; /* minimum touch target */
+}

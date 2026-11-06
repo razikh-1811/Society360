@@ -1,0 +1,24 @@
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { HOME, useAuth } from './context/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
+import AppLayout from './layouts/AppLayout';
+import Login from './pages/Login';
+import { EmptyState } from './components/ui';
+
+const Home = () => { const { user } = useAuth(); return <Navigate to={user ? HOME[user.role] : '/login'} replace />; };
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route element={<ProtectedRoute />}>
+        <Route element={<AppLayout />}>
+          <Route element={<ProtectedRoute roles={['resident']} />}>
+          </Route>
+        </Route>
+      </Route>
+      <Route path="/" element={<Home />} />
+      <Route path="*" element={<EmptyState title="Page not found" text="That page does not exist." />} />
+    </Routes>
+  );
+}
