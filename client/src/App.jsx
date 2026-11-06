@@ -4,6 +4,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import AppLayout from './layouts/AppLayout';
 import Login from './pages/Login';
 import ResidentDashboard from './pages/ResidentDashboard';
+import Billing from './pages/Billing';
 import { EmptyState } from './components/ui';
 
 const Home = () => { const { user } = useAuth(); return <Navigate to={user ? HOME[user.role] : '/login'} replace />; };
@@ -16,6 +17,10 @@ export default function App() {
         <Route element={<AppLayout />}>
           <Route element={<ProtectedRoute roles={['resident']} />}>
             <Route path="/resident" element={<ResidentDashboard />} />
+            <Route path="/billing" element={<Billing />} />
+          </Route>
+          <Route element={<ProtectedRoute roles={['helpdesk', 'committee']} />}>
+            <Route path="/ledgers" element={<Billing staff />} />
           </Route>
         </Route>
       </Route>
