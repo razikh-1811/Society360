@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { Building2, CheckCircle2, Eye, EyeOff, ShieldCheck } from 'lucide-react';
 import { HOME, useAuth } from '../context/AuthContext';
@@ -15,13 +15,14 @@ const DEMOS = [
 
 export default function Login() {
   const { user, login, demoCommittee } = useAuth();
+  const from = useLocation().state?.from; // send people back to the page they asked for
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [show, setShow] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
 
-  if (user) return <Navigate to={HOME[user.role]} replace />;
+  if (user) return <Navigate to={from ? `${from.pathname}${from.search || ''}` : HOME[user.role]} replace />;
 
   const run = async (fn) => {
     setBusy(true); setError('');
