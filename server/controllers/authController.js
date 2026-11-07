@@ -23,6 +23,8 @@ async function login(req, res, next) {
 // Committee demo access: passwordless, but only ever returns a read-only committee account.
 async function demoCommittee(req, res, next) {
   try {
+    // Demo-only convenience. Set DEMO_COMMITTEE_ACCESS=false to disable it for real use.
+    if (process.env.DEMO_COMMITTEE_ACCESS === 'false') throw new ApiError(404, 'Demo access is disabled');
     const user = await User.findOne({ role: 'committee', isActive: true }).sort({ createdAt: 1 });
     if (!user) throw new ApiError(404, 'No committee demo account is configured');
     res.json({ token: signToken(user), user: publicUser(user) });

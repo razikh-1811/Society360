@@ -54,6 +54,15 @@ describe('Authentication', () => {
     expect(res.status).toBe(200);
     expect(res.body.user.role).toBe('committee');
   });
+
+  test('committee demo access can be switched off with DEMO_COMMITTEE_ACCESS=false', async () => {
+    process.env.DEMO_COMMITTEE_ACCESS = 'false';
+    try {
+      expect((await request(app).post('/api/auth/demo-committee')).status).toBe(404);
+    } finally {
+      delete process.env.DEMO_COMMITTEE_ACCESS;
+    }
+  });
 });
 
 describe('Unauthorized access', () => {

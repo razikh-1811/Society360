@@ -59,9 +59,10 @@ npm run dev                 # http://localhost:5173
 | `JWT_EXPIRES_IN` | Optional | Token lifetime |
 | `CLIENT_ORIGIN` | Yes | Allowed browser origin(s) for CORS: your Vercel URL. Comma-separate several |
 | `GEMINI_API_KEY` | Optional | Enables AI complaint classification |
-| `GEMINI_MODEL` | Optional | Gemini model name to use |
+| `GEMINI_MODEL` | Strongly recommended with a Gemini key | Gemini model name. The built-in default is an older model name that may no longer be offered, and could not be checked from the build environment. Set this to a model your API key can currently use |
 | `LATE_FEE_GRACE_DAYS` | Optional | Late-fee demo rule: grace period in days |
 | `LATE_FEE_PERCENT_PER_MONTH` | Optional | Late-fee demo rule: percent per month |
+| `DEMO_COMMITTEE_ACCESS` | Optional | Set to `false` to disable the passwordless one-click committee demo login. **Do this before real use** |
 | `SEED_FORCE` | Seeding in production only | Must be set to `true` to allow seeding when `NODE_ENV` is `production` |
 
 **Frontend (`client/.env`)**
@@ -154,7 +155,7 @@ All demo accounts use the password **`Demo@1234`**. All data is fictional.
 
 **Trying bank reconciliation:** sign in as Help Desk, open *Reconciliation*, click *Sample CSV*, then upload that file. You will see matched, manual-review, unmatched and duplicate results. Uploading it a second time proves duplicates are blocked.
 
-Change or remove the demo accounts before using the system with real data.
+Change or remove the demo accounts, and set `DEMO_COMMITTEE_ACCESS` to `false`, before using the system with real data.
 
 ## 10. Late-fee rule (configurable demonstration)
 
