@@ -25,7 +25,7 @@ export function AiBox({ complaint: c }) {
         <div className="row wrap"><Badge tone="teal">{c.category}</Badge><Badge tone={{ Critical: 'critical', High: 'warning', Medium: 'info', Low: 'neutral' }[c.urgency]}>{c.urgency} urgency</Badge>
           {c.ai?.confidence != null && <Badge tone="neutral">Confidence {Math.round(c.ai.confidence * 100)}%</Badge>}
           {c.ai?.needsManualReview && <Badge tone="warning">Needs manual review</Badge>}</div>
-        {c.ai?.reasoning && <p className="muted small" style={{ marginTop: 8 }}>{c.ai.reasoning}</p>}
+        {c.ai?.reasoning && c.ai?.source !== 'fallback' && <p className="muted small" style={{ marginTop: 8 }}>{c.ai.reasoning}</p>}
       </div>
     </div>
   );
